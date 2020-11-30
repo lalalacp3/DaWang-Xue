@@ -1,0 +1,44 @@
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+DFS:
+
+class Solution:
+    def hasPathSum(self, root: TreeNode, sum: int) -> bool:
+        if not root:
+            return False
+        if root.left == root.right ==None:
+            return sum == root.val
+        else:
+            return self.hasPathSum(root.left,sum-root.val) or self.hasPathSum(root.right,sum-root.val)
+            
+  第一步：想如果为空，，返回什么格式
+  第二步：如果是单子叶，返回什么格式
+  第三步：如果两层，返回什么格式，慢慢递归
+  
+  动态规划 加法：
+  
+  class Solution:
+    def hasPathSum(self, root: TreeNode, sum: int) -> bool:
+        if not root:
+            return False
+        if not (root.left or root.right):
+            return root.val == sum
+        if root.left:
+            root.left.val = root.val + root.left.val
+        if root.right:
+            root.right.val = root.val+root.right.val
+        return self.hasPathSum(root.left,sum) or self.hasPathSum(root.right,sum)
+        
+         减法：
+         
+  class Solution:
+    def hasPathSum(self, root: TreeNode, sum: int) -> bool:
+        if not root:
+            return False
+        if not root.left and not root.right:
+            return root.val ==sum
+        return self.hasPathSum(root.left,sum - root.val) or self.hasPathSum(root.right,sum-root.val)

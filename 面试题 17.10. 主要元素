@@ -1,0 +1,14 @@
+#运用python3的count，sort方法，题目所求的数必然会位于sort后的数组的中间位置，然后我们就求这个数出现的次数，如果大于一半，就返回这个数；否则就返回-1
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        if nums is None:
+            return False
+        nums.sort()
+        mid=int(len(nums)/2)
+        if nums.count(nums[mid])>mid:
+            return nums[mid]
+        else:
+            return -1
+            
+            

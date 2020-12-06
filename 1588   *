@@ -1,0 +1,8 @@
+class Solution:
+    def sumOddLengthSubarrays(self, arr: List[int]) -> int:
+        i,sum1=1,0       # 首先设置起点
+        while i<= len(arr):
+            for j in range(len(arr)-i+1):
+                sum1+=sum(arr[j:j+i])
+            i=i+2
+        return sum1

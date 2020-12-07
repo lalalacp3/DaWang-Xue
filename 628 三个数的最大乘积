@@ -1,0 +1,11 @@
+class Solution:
+    def maximumProduct(self, nums: List[int]) -> int:
+        
+        nums = sorted(nums)
+        output1 = nums[0] * nums[1] * nums[-1]
+        output2 = nums[-1] * nums[-2] * nums[-3]
+        return max(output1,output2)
+   
+   
+   
+#先将数组排序，然后只需考虑前两个和最后一个相乘，最后三个相乘的情况

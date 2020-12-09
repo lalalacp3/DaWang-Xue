@@ -1,0 +1,28 @@
+1.暴力法
+import numpy as np
+class Solution:
+    def judgeCircle(self, moves: str) -> bool:
+        def lal(moves):
+            moves1=list(moves)
+        
+            jq=np.array([0,0])
+            for i in range(len(moves1)):
+                if moves1[i] == 'U':
+                    jq+=np.array([0,1])
+                elif moves1[i] == 'D':
+                    jq+=np.array([0,-1])
+                elif moves1[i] =='R':
+                    jq+=np.array([1,0])
+                elif moves1[i] =='L':
+                    jq+=np.array([-1,0])
+            return jq
+        a=tuple(lal(moves))
+        if a==(0,0):
+            return True
+        else:
+            return False
+
+2.由于面朝方面无关，所以只需要统计UD和RL出现的次数一不一样
+  class Solution:
+    def judgeCircle(self, moves: str) -> bool:
+        return moves.count('R')==moves.count('L') and moves.count('U')==moves.count('D')

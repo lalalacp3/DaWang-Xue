@@ -1,0 +1,14 @@
+class Solution:
+    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+        count=0     #指针一开始的位置
+        for i in arr:
+            if i%2!=0:    
+               count+=1   #奇数+1
+               
+               if count==3:    #到3 返回True
+                   return True
+            else:         #偶数，返回原点0
+                count=0
+        return False     #遍历完成，如果没找到返回False
+        
+  # 先设置一个指针指在0，如果现在的数是奇书，那么指针向右移动一，当指针指到三时，返回True, 如果这个数不是奇数，那么指针重新回到0

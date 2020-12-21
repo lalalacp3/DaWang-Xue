@@ -1,0 +1,14 @@
+class Solution:
+    def divingBoard(self, shorter: int, longer: int, k: int) -> List[int]:
+        if not k:
+            return []
+        if shorter==longer:
+            return [shorter*k]
+        res=[]
+        start=shorter*k           #假设一开始全部都是短板
+        differ=longer-shorter       #每用长板换一块短板形成的长度差值   
+        for i in range(k+1):
+            res.append(differ*i+start)
+        return res
+   
+  

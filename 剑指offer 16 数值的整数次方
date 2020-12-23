@@ -1,0 +1,17 @@
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        def result(x,n):
+            if n==1:
+                return x
+            num=result(x,n//2)
+            if n%2==0:
+                return num*num
+            else:
+                return num*num*x
+        if n==0:
+            return 1
+        if n<0:
+            return 1/result(x,-n)
+        return result(x,n)
+        
+        分治，直接用递归会超出最大深度

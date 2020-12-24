@@ -22,3 +22,16 @@ plt.subplots(figsize=(8, 5))
 sns.heatmap(X.corr(), annot=True, cmap="RdYlGn")
 plt.show()
 
+4. pie chart  饼图
+
+values = 数据
+
+# plotting
+values.plot.pie(autopct='',shadow=True,figsize=(10,6))
+plt.show()
+
+5.countplot
+
+sns.countplot(x = "", data = )
+plt.title("")
+plt.show()

@@ -1,0 +1,17 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def removeElements(self, head: ListNode, val: int) -> ListNode:
+        node=ListNode(None)
+        node.next = head
+        p = node                     #设置一个链表的虚拟的头p，如果p.next等于val，那么跳过val, p.next=p.next.next, 不等于的话继续，p=p.next
+        while p.next:
+            if p.next.val != val:
+                p = p.next
+            else:
+                p.next = p.next.next
+        return node.next

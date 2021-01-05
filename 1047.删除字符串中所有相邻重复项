@@ -1,0 +1,9 @@
+class Solution:
+    def removeDuplicates(self, S: str) -> str:
+        output=[]
+        for ch in S:
+            if output and ch==output[-1]:
+                output.pop()                             #先放入第一个，如果接下来放入的这个和之前那个相等那么就pop，反之append。
+            else:
+                output.append(ch)
+        return ''.join(output)                        #把分割的字符串变为连接的

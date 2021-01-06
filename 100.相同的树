@@ -20,4 +20,5 @@ class Solution:
 2.直接令字符串相等
   class Solution:
     def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+           return str(q)==str(p)
         
